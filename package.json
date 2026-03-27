@@ -1,0 +1,12 @@
+{
+  "name": "genshinbuildmanagerv2",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:back": "cd backend && npm run dev",
+    "dev:front": "cd frontend && npm run dev",
+    "start": "concurrently \"npm run dev:back\" \"npm run dev:front\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
