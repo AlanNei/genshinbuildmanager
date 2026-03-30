@@ -23,7 +23,6 @@ function UIDInput({ onSearch }: UIDInputProps) {
             onChange={(e) => setUid(e.target.value)}
             />
         
-
         <button onClick={handleSearch}>
             Search
         </button>
