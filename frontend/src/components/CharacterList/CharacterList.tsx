@@ -1,5 +1,6 @@
 import "./CharacterList.css";
 import { characterMap } from "../../data/genshinData";
+import { Link } from "react-router-dom";
 
 type CharacterListProps = {
   characters: {avatarId: number}[];
@@ -8,20 +9,26 @@ type CharacterListProps = {
 function CharacterList({ characters }: CharacterListProps) {
 
   return (
-    <div>
+    <div className="character-grid">
       {characters.map((character) => {
         const info = characterMap[character.avatarId];
 
+        if (!info) return null;
+
         return (
-          <div key={character.avatarId}>
+          <Link
+            key={character.avatarId}
+            to= {`/character/${character.avatarId}`}
+            state = {{character}}
+            className="character-card"
+            >
+              <img
+                src={info?.icon}
+                alt={info?.name}
+              />
 
-            <img
-              src={info?.icon}
-              alt={info?.name}
-            />
-
-            <p>{info?.name}</p>
-          </div>
+              <p>{info?.name}</p>
+          </Link>
         );
       })}
     </div>

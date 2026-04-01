@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { UIDInput, PlayerProfile, CharacterList} from "./components";
 import { fetchPlayer } from "./services/enkaApi";
+import { Routes, Route } from "react-router-dom";
+import CharacterPage from "./pages/CharacterPage";
 
 
 function App() {
@@ -21,20 +23,27 @@ function App() {
     }
   }
   return (
-    <>
-    
-    <UIDInput onSearch={handleSearch} />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <UIDInput onSearch={handleSearch} />
 
-    {playerData && (
-      <>
-      <PlayerProfile player={playerData.playerInfo} />
-      
-      {playerData.avatarInfoList && (
-        <CharacterList characters={playerData.avatarInfoList} />
-      )}
-      </>
-      )}
-    </>
+            {playerData && (
+              <>
+                <PlayerProfile player={playerData.playerInfo} />
+
+                {playerData.avatarInfoList && (
+                  <CharacterList characters={playerData.avatarInfoList} />
+                )}
+              </>
+            )}
+          </>
+        }
+      />
+      <Route path="/character/:id" element={<CharacterPage />} />
+    </Routes>
   );
 }
 
