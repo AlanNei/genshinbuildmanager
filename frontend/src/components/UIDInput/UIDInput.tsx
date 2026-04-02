@@ -15,7 +15,7 @@ function UIDInput({ onSearch }: UIDInputProps) {
     }
 
     return (
-        <div>
+        <div className="input-container">
             <input 
             type="text"
             placeholder="Enter UID" 
