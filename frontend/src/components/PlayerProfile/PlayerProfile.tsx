@@ -10,13 +10,21 @@ function PlayerProfile({ player }: PlayerProfileProps) {
     const character = characterMap[avatarId];
 
     return(
-        <div>
-            <img src={character?.icon} 
-            alt={character?.name} 
-            />
-            <h2>{player.nickname}</h2>
-            <p>AR: {player.level}</p>
-            <p>{player.signature}</p>
+        <div className="profile-card">
+            <div className="avatar-wrapper">
+                <img 
+                    src={character?.icon} 
+                    alt={character?.name} 
+                    className="avatar-img"
+                />
+                <span className="ar-badge">AR {player.level}</span>
+            </div>
+
+            <div className="profile-info">
+                <h2 className="profile-name">{player.nickname}</h2>
+                <p className="profile-signature">{player.signature}</p>
+            </div>
+            <button className="refresh-btn">⟳ Refresh</button>
         </div>
     );
 }
