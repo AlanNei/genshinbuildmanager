@@ -5,3 +5,6 @@ export { default as CharacterHeader } from './CharacterHeader/CharacterHeader';
 export { default as CharacterStats } from './CharacterStats/CharacterStats';
 export { default as CharacterWeapon } from './CharacterWeapon/CharacterWeapon';
 export { default as CharacterArtifacts } from './CharacterArtifacts/CharacterArtifacts';
+export { default as Header } from './Header/Header';
+export { default as Loading } from './Loading/Loading';
+export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
