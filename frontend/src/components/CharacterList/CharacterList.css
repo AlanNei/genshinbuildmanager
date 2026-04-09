@@ -1,22 +1,48 @@
 .character-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  max-width: 1100px;
+  margin: 18px auto 0 auto;
+  animation: fadeIn 0.4s ease;
 }
 
 .character-card {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 85px;
+  padding: 8px;
+
   text-decoration: none;
-  color: rgb(0, 0, 0);
+
+  border: 3px solid var(--color-secondary);
+  border-radius: 10px;
+  background-color: #362b3d;
+
+  transition: transform 0.15s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-7px);
 }
 
 .character-card img {
-  width: 100%;
-  max-width: 120px;
-  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  background-color: #d19e7b;
+  border: 2px solid var(--color-secondary);
+  border-radius: 6px;
 }
 
-p {
-  color: rgb(0, 0, 0);
+.character-card p {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-text);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
 }

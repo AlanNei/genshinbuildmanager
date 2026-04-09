@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 type CharacterListProps = {
   characters: {avatarId: number}[];
+  uid: string;
 };
 
-function CharacterList({ characters }: CharacterListProps) {
+function CharacterList({ characters, uid }: CharacterListProps) {
 
   return (
     <div className="character-grid">
@@ -19,7 +20,7 @@ function CharacterList({ characters }: CharacterListProps) {
           <Link
             key={character.avatarId}
             to= {`/character/${character.avatarId}`}
-            state = {{character}}
+            state = {{character, uid}}
             className="character-card"
             >
               <img
