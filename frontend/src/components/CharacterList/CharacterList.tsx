@@ -1,13 +1,13 @@
 import "./CharacterList.css";
 import { characterMap } from "../../data/genshinData";
-import { Link } from "react-router-dom";
 
 type CharacterListProps = {
   characters: {avatarId: number}[];
   uid: string;
+  onSelect: (character: {avatarId: number}) => void;
 };
 
-function CharacterList({ characters, uid }: CharacterListProps) {
+function CharacterList({ characters, uid, onSelect }: CharacterListProps) {
 
   return (
     <div className="character-grid">
@@ -17,11 +17,11 @@ function CharacterList({ characters, uid }: CharacterListProps) {
         if (!info) return null;
 
         return (
-          <Link
+          <div
             key={character.avatarId}
-            to= {`/character/${character.avatarId}`}
-            state = {{character, uid}}
+            onClick={() => onSelect(character)}
             className="character-card"
+            style={{cursor: "pointer"}}
             >
               <img
                 src={info?.icon}
@@ -29,7 +29,7 @@ function CharacterList({ characters, uid }: CharacterListProps) {
               />
 
               <p>{info?.name}</p>
-          </Link>
+          </div>
         );
       })}
     </div>

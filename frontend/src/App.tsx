@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { UIDInput, PlayerProfile, CharacterList, Header, Loading, ErrorMessage} from "./components";
+import { UIDInput, PlayerProfile, CharacterList, Header, Loading, ErrorMessage, BuildSection} from "./components";
 import { fetchPlayer } from "./services/enkaApi";
 import { Routes, Route } from "react-router-dom";
-import CharacterPage from "./pages/CharacterPage";
 import "./App.css";
 
 
@@ -14,6 +13,7 @@ function App() {
 
   const [ loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   //Recibe el uid que escribe el usuario y se guarda en handlesearch
   async function handleSearch(uid: string) {
@@ -34,6 +34,7 @@ function App() {
     }
     setLoading(false);
   }
+  
   return (
     <Routes>
       <Route
@@ -52,14 +53,20 @@ function App() {
                 <PlayerProfile player={playerData.playerInfo} />
 
                 {playerData.avatarInfoList && (
-                  <CharacterList characters={playerData.avatarInfoList} uid={uid} />
+                  <CharacterList 
+                  characters={playerData.avatarInfoList} 
+                  uid={uid}
+                  onSelect={setSelectedCharacter} 
+                  />
+                )}
+                {selectedCharacter && (
+                  <BuildSection character={selectedCharacter} />
                 )}
               </>
             )}
           </>
         }
       />
-      <Route path="/character/:id" element={<CharacterPage />} />
     </Routes>
   );
 }

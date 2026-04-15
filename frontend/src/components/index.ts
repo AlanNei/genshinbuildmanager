@@ -8,4 +8,4 @@ export { default as CharacterArtifacts } from './CharacterArtifacts/CharacterArt
 export { default as Header } from './Header/Header';
 export { default as Loading } from './Loading/Loading';
 export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
-export { default as CharacterBuild } from './CharacterBuild/CharacterBuild';
+export { default as BuildSection } from './BuildSection/BuildSection';
