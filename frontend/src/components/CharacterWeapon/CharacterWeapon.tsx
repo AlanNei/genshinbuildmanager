@@ -1,4 +1,4 @@
-import loc from "../../data/loc.json";
+import loc from "../../data/locs.json";
 
 function CharacterWeapon({character}) {
     //Para mostrar el arma

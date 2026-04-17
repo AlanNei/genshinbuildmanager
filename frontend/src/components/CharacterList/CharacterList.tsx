@@ -14,8 +14,6 @@ function CharacterList({ characters, uid, onSelect }: CharacterListProps) {
       {characters.map((character) => {
         const info = characterMap[character.avatarId];
 
-        if (!info) return null;
-
         return (
           <div
             key={character.avatarId}
