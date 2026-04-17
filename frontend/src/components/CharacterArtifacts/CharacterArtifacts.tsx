@@ -1,5 +1,7 @@
 import { statMap } from "../../utils/statMap";
+import locs from "../../data/locs.json";
 import loc from "../../data/loc.json";
+import "./CharacterArtifacts.css";
 
 function CharacterArtifacts({character}) {
 
@@ -25,7 +27,7 @@ function CharacterArtifacts({character}) {
                 if (count >= 2){
                     return (
                         <p key={set}>
-                            {loc.en[set] || set}: {count}pc
+                            {locs.en?.[set] || loc.en?.[set] || set}: {count}pc
                         </p>
                     );
                 }    
