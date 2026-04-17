@@ -1,13 +1,21 @@
 import "./PlayerProfile.css";
-import { characterMap } from "../../data/genshinData";
+import { characterMap, pfpMap } from "../../data/genshinData";
 
 type PlayerProfileProps = {
     player: any;
 };
 
 function PlayerProfile({ player }: PlayerProfileProps) {
-    const avatarId = player.profilePicture.avatarId;
-    const character = characterMap[avatarId];
+    const avatarId = player.profilePicture?.avatarId ?? player.profilePicture?.id;
+
+    let character = null;
+
+    if (avatarId && characterMap[avatarId]){
+        character = characterMap[avatarId];
+    }
+    else if (avatarId && pfpMap[avatarId]) {
+        character = pfpMap[avatarId];
+    }
 
     return(
         <div className="profile-card">
