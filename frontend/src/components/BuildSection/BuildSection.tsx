@@ -1,11 +1,11 @@
 import { CharacterStats, CharacterWeapon, CharacterArtifacts, CharacterHeader } from "..";
 import "./BuildSection.css";
 
-function BuildSection({ character }) {
+function BuildSection({ character, uid }) {
     return (
         <div className="build-container">
             <div>
-                <CharacterHeader character={character} />
+                <CharacterHeader character={character} uid={uid} />
             </div>
 
             <div className="card">

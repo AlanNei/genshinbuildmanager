@@ -60,7 +60,7 @@ function App() {
                   />
                 )}
                 {selectedCharacter && (
-                  <BuildSection character={selectedCharacter} />
+                  <BuildSection character={selectedCharacter} uid={uid} />
                 )}
               </>
             )}
