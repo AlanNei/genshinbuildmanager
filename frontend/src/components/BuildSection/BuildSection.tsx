@@ -1,4 +1,4 @@
-import { CharacterStats, CharacterWeapon, CharacterArtifacts, CharacterHeader } from "..";
+import { CharacterStats, CharacterArtifacts, CharacterHeader } from "..";
 import "./BuildSection.css";
 
 function BuildSection({ character, uid }) {
@@ -10,10 +10,6 @@ function BuildSection({ character, uid }) {
 
             <div className="card">
                 <CharacterStats character={character} />
-            </div>
-
-            <div className="card">
-                <CharacterWeapon character={character} />
             </div>
 
             <div className="card">
