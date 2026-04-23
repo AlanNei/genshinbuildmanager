@@ -19,4 +19,6 @@ export const statMap: Record<string, string> = {
     FIGHT_PROP_ICE_ADD_HURT: "Cryo DMG Bonus",
     FIGHT_PROP_ROCK_ADD_HURT: "Geo DMG Bonus",
     FIGHT_PROP_GRASS_ADD_HURT: "Dendro DMG Bonus",
+    FIGHT_PROP_SHIELD_COST_MINUS_RATIO: "Shield Strength",
+    FIGHT_PROP_SPEED_PERCENT: "Movement SPD%",
 };
