@@ -1,0 +1,73 @@
+.cs-card {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;       /* era 16px */
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 24px;
+  justify-content: space-between;
+}
+/* Arma */
+.cs-weapon {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.cs-weapon-icon {
+  width: 52px;     /* era 64px */
+  height: 52px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+}
+
+.cs-weapon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cs-weapon-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cs-weapon-sub {
+  font-size: 11px;
+  color: gray;
+}
+
+/* Stats */
+.cs-stats-list {
+  flex: 1;              /* agrega esto */
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  gap: 0;               /* quita el gap fijo, space-evenly lo maneja */
+}
+
+.cs-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px; /* era 13px */
+}
+
+.cs-stat-label {
+  color: gray;
+}
+
+.cs-stat-value {
+  font-weight: 500;
+}
+
+/* Set de artefactos */
+.cs-artifact-set {
+  text-align: center;
+  font-size: 11px;
+  color: gray;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+}

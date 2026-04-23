@@ -1,0 +1,103 @@
+.character-header-card {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;        /* era 12px */
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 24px;
+  justify-content: space-between;
+}
+
+.character-header-name {
+  text-align: center;
+}
+
+.character-header-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.constellations-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.constellation img, .skill img {
+  width: 24px;     /* era 28px */
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+}
+
+.constellation.locked {
+  opacity: 0.3;
+}
+
+.ch-profile-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.ch-profile-photo {
+  width: 80px;     /* era 100px */
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.skills-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+}
+
+.character-header-uid {
+  font-size: 11px;
+  color: gray;
+}
+
+@media (max-width: 1100px) {
+  .character-header-card {
+    width: 100%;
+  }
+
+  .character-header-body {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .constellations-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 66px;      /* exacto para 2 íconos de 28px + gap de 6px */
+    flex-shrink: 0;   /* evita que se comprima y empuje la foto */
+  }
+
+  .skills-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 66px;
+    flex-shrink: 0;
+  }
+
+  .ch-profile-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}

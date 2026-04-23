@@ -1,61 +1,61 @@
 import { statMap } from "../../utils/statMap";
-import locs from "../../data/locs.json";
-import loc from "../../data/loc.json";
 import "./CharacterArtifacts.css";
 
-function CharacterArtifacts({character}) {
+const isPercent = (propId?: string) =>
+  propId?.includes("PERCENT") ||
+  propId?.includes("CRITICAL") ||
+  propId?.includes("CHARGE") ||
+  propId?.includes("ADD_HURT");
 
-    //Para mostrar los artefactos
-    const artifacts = character.equipList.filter(
-        item => item.flat?.reliquaryMainstat
-    );
+function CharacterArtifacts({ character }) {
+  const artifacts = character.equipList.filter(
+    item => item.flat?.reliquaryMainstat
+  );
 
-    //Contar los sets
-    const setCounts ={};
-    artifacts.forEach(artifact=>{
-        const setName = artifact.flat.setNameTextMapHash;
+  return (
+    <div className="ca-card">
+      {artifacts.map((artifact) => {
+        const level = artifact.reliquary.level - 1;
+        const main = artifact.flat.reliquaryMainstat;
 
-        if (!setCounts[setName]){
-            setCounts[setName] = 0;
-        }
-        setCounts[setName]++;
-    });
+        return (
+          <div key={artifact.itemId} className="ca-artifact-row">
 
-    return(
-        <div>
-            {Object.entries(setCounts).map(([set, count])=>{
-                if (count >= 2){
-                    return (
-                        <p key={set}>
-                            {locs.en?.[set] || loc.en?.[set] || set}: {count}pc
-                        </p>
-                    );
-                }    
-            })}
-            <h1>Artifacts</h1>
-            {artifacts?.map((artifact)=>(
-                <div key={artifact.itemId}>
-                    <img src={`https://enka.network/ui/${artifact.flat.icon}.png`}/>
-                    <p>
-                        Level: +{(artifact.reliquary.level)-1} 
-                    </p>
-                    <h2>Main Stat</h2>
-                    <p>
-                        {statMap[artifact.flat.reliquaryMainstat.mainPropId]}: {artifact.flat.reliquaryMainstat.statValue}
-                    </p>
-                    <h2>SubStats</h2>
-                    {artifact.flat.reliquarySubstats?.map((sub) => (
-                        <div key={sub.appendPropId}>
-                            <p>
-                                {statMap[sub.appendPropId]}: {sub.statValue}
-                            </p>
-                        </div>
-                    ))}
+            <div className="ca-left">
+              <img
+                className="ca-icon"
+                src={`https://enka.network/ui/${artifact.flat.icon}.png`}
+                alt="artifact"
+              />
+              <p className="ca-main-value">
+                {isPercent(main.mainPropId)
+                  ? main.statValue.toFixed(1) + "%"
+                  : main.statValue}
+              </p>
+              <p className="ca-stars">{"★".repeat(artifact.flat.rankLevel ?? 5)}</p>
+              <p className="ca-level">+{level}</p>
+            </div>
+
+            <div className="ca-substats">
+              {artifact.flat.reliquarySubstats?.map((sub) => (
+                <div key={sub.appendPropId} className="ca-sub-row">
+                  <span className="ca-sub-label">
+                    {statMap[sub.appendPropId] || sub.appendPropId}
+                  </span>
+                  <span className="ca-sub-value">
+                    +{isPercent(sub.appendPropId)
+                      ? sub.statValue.toFixed(1) + "%"
+                      : sub.statValue}
+                  </span>
                 </div>
-            ))}
-        </div>
-    );
+              ))}
+            </div>
 
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default CharacterArtifacts;

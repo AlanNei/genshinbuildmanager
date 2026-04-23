@@ -1,11 +1,76 @@
-p{
-    color: var(--color-text);
+.ca-card {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;        /* era 8px */
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 24px;
 }
 
-h2 {
-    color: var(--color-text);
+.ca-artifact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px; /* era 8px */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  flex: 1;          /* cada fila ocupa espacio proporcional */
 }
 
-h1{
-    color: var(--color-text);
+/* Izquierda */
+.ca-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;  /* era 72px */
+}
+
+.ca-icon {
+  width: 52px;      /* era 64px */
+  height: 52px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.ca-main-value {
+  font-size: 13px;  /* era 14px */
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.ca-stars {
+  font-size: 10px;
+  color: goldenrod;
+  letter-spacing: 1px;
+}
+
+.ca-level {
+  font-size: 11px;
+  color: gray;
+}
+
+/* Substats grid 2x2 */
+.ca-substats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  flex: 1;
+}
+
+.ca-sub-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+}
+
+.ca-sub-label {
+  color: gray;
+  font-size: 10px;
+}
+
+.ca-sub-value {
+  font-weight: 500;
+  font-size: 11px;  /* era 12px */
 }
