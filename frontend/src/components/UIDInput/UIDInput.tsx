@@ -1,14 +1,12 @@
-import { useState } from "react";
 import "./UIDInput.css";
 
-//Aqui hago una props
 type UIDInputProps = {
-    //esto es un evento
-    onSearch: (uid: string) => void;
+  uid: string;
+  setUid: (uid: string) => void;
+  onSearch: (uid: string) => void;
 };
 
-function UIDInput({ onSearch }: UIDInputProps) {
-    const [uid, setUid] = useState("");
+function UIDInput({ uid, setUid, onSearch }: UIDInputProps) {
 
     function handleSearch() {
         onSearch(uid);
