@@ -20,6 +20,8 @@ function App() {
     setUid(uid);
     setError("");
     setLoading(true);
+    
+    setSelectedCharacter(null);
 
     try {
       const data = await fetchPlayer(uid);
@@ -41,8 +43,10 @@ function App() {
         path="/"
         element={
           <>
-            <Header uid={uid} />
-            <UIDInput onSearch={handleSearch} />
+            <Header uid={uid} setUid={setUid}  onSearch={handleSearch} hasSearched={!!playerData} />
+            {!playerData && (
+              <UIDInput uid={uid} setUid={setUid} onSearch={handleSearch} />
+            )}
 
             {/*Cargando y errores */}
             {loading && <Loading />}
