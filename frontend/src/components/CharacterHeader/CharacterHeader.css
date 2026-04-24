@@ -1,103 +1,155 @@
 .character-header-card {
-  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: stretch;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;        /* era 12px */
-  padding: 12px;
-  border: 2px solid #ccc;
-  border-radius: 24px;
-  justify-content: space-between;
-}
-
-.character-header-name {
-  text-align: center;
-}
-
-.character-header-body {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1e1a24;
+  border: 1px solid #3a3040;
 }
 
 .constellations-column {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border-right: 1px solid #3a3040;
+  flex-shrink: 0;
 }
 
-.constellation img, .skill img {
-  width: 24px;     /* era 28px */
-  height: 24px;
+.constellation {
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  border: 1.5px solid #ccc;
+  border: 1.5px solid #5a4060;
+  background: #2a1f30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.constellation.locked {
-  opacity: 0.3;
+.constellation.unlocked { border-color: #c084b0; }
+.constellation.locked { opacity: 0.25; }
+
+.constellation img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+  border: none;
 }
 
 .ch-profile-center {
-  flex: 1;
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 0 14px;
+  flex-shrink: 0;
 }
 
 .ch-profile-photo {
-  width: 80px;     /* era 100px */
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 2px solid #5a4060;
+  display: block;
+  object-fit: cover;
 }
+
+.character-header-name {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 8px;
+}
+
+.character-header-name h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #e8dff0;
+  letter-spacing: 0.5px;
+}
+.character-header-uid {
+  align-self: flex-end;   /* ← solo esto, sin margin raro */
+  font-size: 9px;
+  color: #5a4868;
+  margin: 0;
+}
+
+.ch-info-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ch-label { font-size: 11px; color: #7a6880; }
+.ch-value { font-size: 11px; font-weight: 600; color: #c8b8d8; }
 
 .skills-column {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 1px solid #3a3040;
+  flex-shrink: 0;
 }
 
 .skill {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 11px;
+  gap: 2px;
 }
 
+.skill-icon-wrap {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1.5px solid #5a4060;
+  background: #2a1f30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.skill img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+  border: none;
+}
+
+.skill span { font-size: 10px; color: #c8b8d8; line-height: 1; }
+
 .character-header-uid {
-  font-size: 11px;
-  color: gray;
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  font-size: 9px;
+  color: #5a4868;
+  margin: 0;
 }
 
 @media (max-width: 1100px) {
-  .character-header-card {
-    width: 100%;
-  }
-
-  .character-header-body {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .constellations-column {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 66px;      /* exacto para 2 íconos de 28px + gap de 6px */
-    flex-shrink: 0;   /* evita que se comprima y empuje la foto */
-  }
-
-  .skills-column {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 66px;
-    flex-shrink: 0;
-  }
-
-  .ch-profile-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
+  .character-header-name h2 { font-size: 24px; }
+  .ch-profile-photo { width: 72px; height: 72px; }
+  .constellations-column, .skills-column { padding: 10px 7px; gap: 4px; }
+  .constellation { width: 24px; height: 24px; }
+  .constellation img { width: 18px; height: 18px; }
+  .skill-icon-wrap {width: 35px;height: 35px;}
+  .skill img {width: 20px;height: 20px;}
 }
