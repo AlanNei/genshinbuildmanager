@@ -1,73 +1,80 @@
 .cs-card {
   flex: 1;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;       /* era 16px */
-  padding: 12px;
-  border: 2px solid #ccc;
-  border-radius: 24px;
+  gap: 10px;
+  padding: 14px;
+  background: #1e1a24;
+  border: 1px solid #3a3040;
+  border-radius: 16px;
   justify-content: space-between;
 }
-/* Arma */
-.cs-weapon {
+
+.cs-top {
   display: flex;
   align-items: flex-start;
   gap: 10px;
 }
 
 .cs-weapon-icon {
-  width: 52px;     /* era 64px */
-  height: 52px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
-  border-radius: 8px;
-  border: 1.5px solid #ccc;
+  border-radius: 7px;
+  border: 1px solid #3a3040;
+  flex-shrink: 0;
 }
 
-.cs-weapon-info {
+.cs-weapon-info { display: flex; flex-direction: column; gap: 2px; }
+.cs-weapon-name { margin: 0; font-size: 12px; font-weight: 600; color: #e8dff0; }
+.cs-weapon-sub  { margin: 0; font-size: 10px; color: #7a6880; }
+
+.cs-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 12px;
+  flex: 1;
+  grid-auto-rows: 1fr;
+}
+.cs-stats-col {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-}
-
-.cs-weapon-name {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.cs-weapon-sub {
-  font-size: 11px;
-  color: gray;
-}
-
-/* Stats */
-.cs-stats-list {
-  flex: 1;              /* agrega esto */
   justify-content: space-evenly;
-  display: flex;
-  flex-direction: column;
-  gap: 0;               /* quita el gap fijo, space-evenly lo maneja */
 }
 
 .cs-stat-row {
   display: flex;
   justify-content: space-between;
-  font-size: 12px; /* era 13px */
+  align-items: center;
+  font-size: 11px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
-.cs-stat-label {
-  color: gray;
-}
+.cs-stat-label { color: #7a6880; }
+.cs-stat-value { font-weight: 500; color: #e8dff0; font-size: 13px; margin-left: 15px; white-space: nowrap;}
 
-.cs-stat-value {
-  font-weight: 500;
-}
-
-/* Set de artefactos */
 .cs-artifact-set {
   text-align: center;
-  font-size: 11px;
-  color: gray;
-  border-top: 1px solid #ccc;
+  font-size: 10px;
+  color: #7a6880;
+  border-top: 1px solid #3a3040;
   padding-top: 8px;
+}
+
+@media (max-width: 1100px) {
+  .cs-card {
+    padding: 10px;
+    gap: 8px;
+  }
+  .cs-weapon-icon {
+    width: 45px; /* Reducido de 55px */
+    height: 45px;
+  }
+  .cs-weapon-name { font-size: 11px; }
+  .cs-stat-row { font-size: 10px; }
+  .cs-stat-value { font-size: 11px; margin-left: 8px; }
 }
