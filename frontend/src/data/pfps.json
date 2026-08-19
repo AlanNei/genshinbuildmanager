@@ -305,6 +305,9 @@
     "7300": {
         "IconPath": "UI_AvatarIcon_Charlotte_Circle"
     },
+    "7301": {
+        "IconPath": "UI_AvatarIcon_CharlotteCostumeDong_Circle"
+    },
     "7400": {
         "IconPath": "UI_AvatarIcon_Furina_Circle"
     },
@@ -358,6 +361,9 @@
     },
     "9100": {
         "IconPath": "UI_AvatarIcon_Citlali_Circle"
+    },
+    "9101": {
+        "IconPath": "UI_AvatarIcon_CitlaliCostumeXia_Circle"
     },
     "9200": {
         "IconPath": "UI_AvatarIcon_Mavuika_Circle"
@@ -424,6 +430,24 @@
     },
     "11200": {
         "IconPath": "UI_AvatarIcon_Linnea_Circle"
+    },
+    "11300": {
+        "IconPath": "UI_AvatarIcon_Prune_Circle"
+    },
+    "11400": {
+        "IconPath": "UI_AvatarIcon_Nicole_Circle"
+    },
+    "11500": {
+        "IconPath": "UI_AvatarIcon_Lohen_Circle"
+    },
+    "11600": {
+        "IconPath": "UI_AvatarIcon_MarionetteNew_Circle"
+    },
+    "11700": {
+        "IconPath": "UI_AvatarIcon_Alyosha_Circle"
+    },
+    "11800": {
+        "IconPath": "UI_AvatarIcon_Odette_Circle"
     },
     "99999": {
         "IconPath": "UI_AvatarIcon_Ambor_Circle"
@@ -505,6 +529,15 @@
     },
     "100260": {
         "IconPath": "UI_AvatarIcon_76096_Circle"
+    },
+    "100270": {
+        "IconPath": "UI_AvatarIcon_76143_Circle"
+    },
+    "100280": {
+        "IconPath": "UI_AvatarIcon_77104_Circle"
+    },
+    "100290": {
+        "IconPath": "UI_AvatarIcon_77160_Circle"
     },
     "200010": {
         "IconPath": "UI_AvatarIcon_Activity_01_Circle"

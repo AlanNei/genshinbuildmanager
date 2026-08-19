@@ -2,6 +2,7 @@ import { getElementalBonus } from "../../utils/getElementalBonus";
 import { statMap } from "../../utils/statMap";
 import locs from "../../data/locs.json";
 import loc from "../../data/loc.json";
+import { weaponMap, getRelicSetName } from "../../data/genshinData";
 import "./CharacterStats.css";
 
 const isPercent = (propId) =>
@@ -15,6 +16,7 @@ function CharacterStats({ character }) {
   const weapon = character.equipList.find(item => item.flat?.weaponStats);
   const weaponName = locs.en?.[String(weapon.flat.nameTextMapHash)]
     || loc.en?.[String(weapon.flat.nameTextMapHash)]
+    || weaponMap[weapon.flat.itemId]?.name
     || "Unknown";
   const weaponMainStat = weapon.flat.weaponStats?.[0];
   const weaponSubStat  = weapon.flat.weaponStats?.[1];
@@ -44,10 +46,17 @@ function CharacterStats({ character }) {
   character.equipList
     .filter(item => item.flat?.reliquaryMainstat)
     .forEach(artifact => {
-      const setName = artifact.flat.setNameTextMapHash;
-      if (!setCounts[setName]) setCounts[setName] = 0;
-      setCounts[setName]++;
+      const setId = artifact.flat.setId; // ✅ Usa setId
+      if (!setCounts[setId]) setCounts[setId] = 0;
+      setCounts[setId]++;
     });
+
+  character.equipList.map((artifact) => {
+  console.log({
+  setId: artifact.flat?.setId,
+  setNameTextMapHash: artifact.flat?.setNameTextMapHash,
+});
+})
 
   return (
     <div className="cs-card">
@@ -87,13 +96,13 @@ function CharacterStats({ character }) {
         ))}
       </div>
 
-      <div className="cs-artifact-set">
-        {Object.entries(setCounts).map(([set, count]) => {
-          if (count < 2) return null;
-          const name = locs.en?.[set] || loc.en?.[set] || set;
-          return <p key={set}>{name}: {count}pc</p>;
-        })}
-      </div>
+    <div className="cs-artifact-set">
+      {Object.entries(setCounts).map(([setId, count]) => {
+        if (count < 2) return null;
+        const name = getRelicSetName(Number(setId)); // ✅ Resuelve con la función
+        return <p key={setId}>{name}: {count}pc</p>;
+      })}
+    </div>
     </div>
   );
 }
